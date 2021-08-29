@@ -26,6 +26,10 @@ const styles = StyleSheet.create({
   image: {
     width: 250,
     height: 250,
+    marginBottom: 8,
+    borderBottomColor:'#0f380f',
+    borderBottomWidth: 2,
+    paddingHorizontal: '100%',
   },
 
 

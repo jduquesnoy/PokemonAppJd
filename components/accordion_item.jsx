@@ -28,13 +28,10 @@ class AccordionItem extends Component {
     const pokemonSource = require(`../assets/${this.props.pokemon.photo}.png`);
     return (
       <View>
-        <View style={styles.title}>
-          <Text
-            onPress={this.handlePokemon}>
+        <Text style={this.state.isActive ? styles.titleContent : styles.title} onPress={this.handlePokemon}>
             {this.props.pokemon.french_name}
-          </Text>
-          <Text>{this.state.isActive ? '-' : '+'}</Text>
-        </View>
+        </Text>
+
         { this.state.isActive &&
         <View>
             <Image
@@ -42,10 +39,10 @@ class AccordionItem extends Component {
               source={pokemonSource}
             />
           <View style={this.state.screenHeight > this.state.screenWidth ? styles.ContainerPortrait : styles.ContainerLandscape} onLayout={this.handlelayout}>
-            <Text>N° pokedex: {this.props.pokemon.pokedex_number}</Text>
-            <Text>Nom anglais: {this.props.pokemon.english_name}</Text>
-            <Text>Nom japonais: {this.props.pokemon.japanese_name}</Text>
-            <Text>{this.props.pokemon.description}</Text>
+              <Text style={styles.content}>N° pokedex: {this.props.pokemon.pokedex_number}</Text>
+              <Text style={styles.content}>Nom anglais: {this.props.pokemon.english_name}</Text>
+              <Text style={styles.content}>Nom japonais: {this.props.pokemon.japanese_name}</Text>
+              <Text style={styles.content}>{this.props.pokemon.description}</Text>
           </View>
         </View>
         }
@@ -65,25 +62,57 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 100,
-    backgroundColor: 'red',
+    paddingVertical: 20,
+    borderRadius: 16,
+    marginBottom: 8,
+    borderColor:'#0f380f',
+    borderWidth: 2,
+    textAlign:'center',
+    fontSize: 16,
+    fontWeight: 'bold',
+    color:'#0f380f',
+
+
   },
+  titleContent: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: '#0f380f',
+    paddingVertical: 20,
+    borderRadius: 16,
+    marginBottom: 8,
+    borderColor:'#355b26',
+    borderWidth: 2,
+    color: '#82a70a',
+    textAlign:'center',
+    fontSize: 16,
+    fontWeight: 'bold',
+
+  },
+  content:{
+    textAlign:'left',
+    color:'#0f380f',
+    marginRight: 8,
+    paddingRightMin: 20
+  }
+  ,
   ContainerPortrait: {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-start',
+    marginVertical: 16,
   },
   ContainerLandscape: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-start',
+    marginVertical: 16,
   },
-  // titleText: {
-  //   fontSize: 20,
-  //   fontWeight: "bold"
-  // }
+
 });
 
 export default AccordionItem;
