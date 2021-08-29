@@ -28,7 +28,7 @@ class AccordionItem extends Component {
     const pokemonSource = require(`../assets/${this.props.pokemon.photo}.png`);
     return (
       <View>
-        <View>
+        <View style={styles.title}>
           <Text
             onPress={this.handlePokemon}>
             {this.props.pokemon.french_name}
@@ -43,9 +43,9 @@ class AccordionItem extends Component {
             />
           <View style={this.state.screenHeight > this.state.screenWidth ? styles.ContainerPortrait : styles.ContainerLandscape} onLayout={this.handlelayout}>
             <Text>N° pokedex: {this.props.pokemon.pokedex_number}</Text>
-            <Text>Nom version anglaise: {this.props.pokemon.english_name}</Text>
-            <Text>Nom version japonaise: {this.props.pokemon.japanese_name}</Text>
-            <Text>Description: {this.props.pokemon.description}</Text>
+            <Text>Nom anglais: {this.props.pokemon.english_name}</Text>
+            <Text>Nom japonais: {this.props.pokemon.japanese_name}</Text>
+            <Text>{this.props.pokemon.description}</Text>
           </View>
         </View>
         }
@@ -56,8 +56,17 @@ class AccordionItem extends Component {
 
 const styles = StyleSheet.create({
   pokemonImage: {
-    with: 250,
-    height: 250,
+    with: 100,
+    height: 100,
+    resizeMode: 'contain'
+  },
+  title: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 100,
+    backgroundColor: 'red',
   },
   ContainerPortrait: {
     flex: 1,

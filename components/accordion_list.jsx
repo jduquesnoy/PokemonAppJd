@@ -42,7 +42,7 @@ class AccordionList extends Component{
       return <Text>Loading...</Text>;
     } else {
       return(
-        <View>
+        <View style={styles.container}>
           {pokemons.map((pokemon)=>{
             return <AccordionItem pokemon={pokemon} key={pokemon.id}/>
           })}
@@ -54,6 +54,12 @@ class AccordionList extends Component{
 
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    width: '80%',
+    margin: 'auto',
+  },
+
   // pokemonImage: {
   //   with: 250,
   //   height: 250,
