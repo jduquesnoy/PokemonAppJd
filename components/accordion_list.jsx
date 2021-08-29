@@ -37,9 +37,9 @@ class AccordionList extends Component{
   render(){
     const { error, isLoaded, pokemons } = this.state;
     if (error) {
-      return <Text> Error: {error.message}</Text>;
+      return <Text style={styles.text}> Error: {error.message}</Text>;
     } else if (!isLoaded) {
-      return <Text>Loading...</Text>;
+      return <Text style={styles.text}>Loading...</Text>;
     } else {
       return(
         <View style={styles.container}>
@@ -59,15 +59,13 @@ const styles = StyleSheet.create({
     width: '80%',
     margin: 'auto',
   },
-
-  // pokemonImage: {
-  //   with: 250,
-  //   height: 250,
-  // },
-  // titleText: {
-  //   fontSize: 20,
-  //   fontWeight: "bold"
-  // }
+  text: {
+    textAlign:'left',
+    color:'#0f380f',
+    fontWeight: 800,
+    marginRight: 8,
+    paddingRightMin: 20
+  }
 });
 
 
